@@ -5,6 +5,8 @@
  */
 package lendle.courses.wp.buttonsamples;
 
+import com.sun.management.jmx.Trace;
+
 /**
  *
  * @author user
@@ -27,6 +29,7 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
@@ -39,6 +42,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("jRadioButton1");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,15 +50,24 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("jRadioButton2");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("group1"));
 
         jCheckBox1.setText("jCheckBox1");
+        jCheckBox1.setEnabled(false);
 
         jCheckBox2.setText("jCheckBox2");
+        jCheckBox2.setEnabled(false);
 
         jCheckBox3.setText("jCheckBox3");
+        jCheckBox3.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -84,6 +97,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setEnabled(false);
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton1.setText("jButton1");
@@ -128,7 +142,33 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
+        if(jRadioButton1.isSelected()){
+            jCheckBox1.setEnabled(true);
+            jCheckBox2.setEnabled(true);
+            jCheckBox3.setEnabled(true);
+            jTextArea1.setEnabled(false);
+        }else{
+            jCheckBox1.setEnabled(false);
+            jCheckBox2.setEnabled(false);
+            jCheckBox3.setEnabled(false);
+            jTextArea1.setEnabled(true);
+        }
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+        if(jRadioButton1.isSelected()){
+            jCheckBox1.setEnabled(true);
+            jCheckBox2.setEnabled(true);
+            jCheckBox3.setEnabled(true);
+            jTextArea1.setEnabled(false);
+        }else{
+            jCheckBox1.setEnabled(false);
+            jCheckBox2.setEnabled(false);
+            jCheckBox3.setEnabled(false);
+            jTextArea1.setEnabled(true);
+        }
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,6 +206,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
