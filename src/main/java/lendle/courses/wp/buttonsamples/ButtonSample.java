@@ -42,6 +42,7 @@ public class ButtonSample {
         frame.getRootPane().setDefaultButton(button);
         
         frame.setVisible(true);
+        
     }
     
 }
