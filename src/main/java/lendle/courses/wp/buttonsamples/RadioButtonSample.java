@@ -6,10 +6,14 @@
 package lendle.courses.wp.buttonsamples;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
+import javax.swing.JToggleButton;
 import javax.swing.WindowConstants;
 
 /**
@@ -28,11 +32,29 @@ public class RadioButtonSample {
         frame.setLayout(new FlowLayout());
         JRadioButton radio1 = new JRadioButton("radio1");
         JRadioButton radio2 = new JRadioButton("radio2");
+        JCheckBox checkBox=new JCheckBox("radio1");
+        JToggleButton toggleButton=new JToggleButton("togglel");
         
         frame.add(radio1);
         frame.add(radio2);
-        //建立 ButtonGroup，把 radio1, radio2 加到 ButtonGroup
+        frame.add(checkBox);
+        frame.add(toggleButton);
         
+        //建立 ButtonGroup，把 radio1, radio2 加到 ButtonGroup
+        ButtonGroup group=new ButtonGroup();
+        group.add(radio1);
+        group.add(radio2);
+        group.add(checkBox);
+        ActionListener listener=new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null,""+radio1.isSelected()+", "+radio2.isSelected()+", "+checkBox.isSelected()+", "+toggleButton.isSelected());
+            }
+        };
+        radio1.addActionListener(listener);
+        radio2.addActionListener(listener);
+        checkBox.addActionListener(listener);
+        toggleButton.addActionListener(listener);
         ////////////////////////////////////////////////////
         
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
